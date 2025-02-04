@@ -1,0 +1,1 @@
+print("Módulo 'core' carregado com sucesso.")
