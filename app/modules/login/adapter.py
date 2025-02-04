@@ -2,7 +2,6 @@ import requests
 from app.core.settings import settings
 from app.core.logger import logger
 
-
 def authenticate(email: str, password: str):
     url = f"{settings.URL_API_SS}/auth/ldap_get_token"
     payload = {"username": email, "password": password}

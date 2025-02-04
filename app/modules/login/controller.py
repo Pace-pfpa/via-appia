@@ -7,7 +7,6 @@ router = APIRouter()
 
 @router.post("/login", response_model=LoginResponse)
 def login(login_data: LoginRequest):
-    logger.info("MACAXEIRA")
     try:
         token = login_service(login_data)
         if isinstance(token, dict) and "error" in token:

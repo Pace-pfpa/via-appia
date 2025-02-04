@@ -1,5 +1,3 @@
-from http.client import responses
-
 from app.modules.login.adapter import authenticate
 from app.modules.login.schemas import LoginRequest, LoginResponse
 from app.core.logger import logger
