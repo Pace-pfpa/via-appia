@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from app.modules.login.schemas import LoginRequest, LoginResponse
-from app.modules.login.service import login_service
+from app.modules.login.login_schema import LoginRequest, LoginResponse
+from app.modules.login.login_service import login_service
 from app.core.logger import logger
 
 router = APIRouter()

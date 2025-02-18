@@ -1,0 +1,1 @@
+O ViaAppia é uma API que serve como intermédio entre os sistemas da NUTEC e o SuperSapiens. Disponibiliza rotas puras e rotas específicas para cada um dos sistemas retornando os dados necessários.

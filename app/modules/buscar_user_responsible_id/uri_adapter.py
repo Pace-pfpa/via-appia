@@ -1,10 +1,10 @@
 import requests
 from app.core.settings import settings
 from app.core.logger import logger
-from app.modules.user_responsible_id.schemas import UserIDResponse
+from app.modules.buscar_user_responsible_id.uri_schema import UserIDResponse
 
 
-def get_user_responsible_id(token: str) -> UserIDResponse:
+def buscar_user_responsible_id_adapter(token: str) -> UserIDResponse:
     url = f"{settings.URL_API_SS}/profile"
     headers = {"Authorization": f"Bearer {token}"}
 

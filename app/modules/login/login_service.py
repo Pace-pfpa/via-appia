@@ -1,5 +1,5 @@
-from app.modules.login.adapter import authenticate
-from app.modules.login.schemas import LoginRequest, LoginResponse
+from app.modules.login.login_adapter import authenticate
+from app.modules.login.login_schema import LoginRequest, LoginResponse
 from app.core.logger import logger
 
 def login_service(login_data: LoginRequest):
