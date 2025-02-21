@@ -6,7 +6,7 @@ from app.core.logger import logger
 router = APIRouter()
 
 @router.get("/id", response_model=UserIDResponse)
-def buscar_user_responsible_id_controller(authorization: str = Header(None)):
+def buscar_user_responsible_id(authorization: str = Header(None)):
     if not authorization or not authorization.startswith("Bearer "):
         logger.error(f"Erro na autorização: {authorization}")
         raise HTTPException(status_code=401,

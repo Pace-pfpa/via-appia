@@ -6,7 +6,7 @@ from app.core.logger import logger
 router = APIRouter()
 
 @router.post("/login", response_model=LoginResponse)
-def login(login_data: LoginRequest):
+def login_ss(login_data: LoginRequest):
     try:
         token = login_service(login_data)
         if isinstance(token, dict) and "error" in token:

@@ -1,25 +1,8 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List, Dict
 from datetime import datetime
 
-class CreateTarefaSupersapiensResponse(BaseModel):
-    id: int
-    uuid: str
-    observacao: str
-    urgente: bool
-    dataHoraInicioPrazo: datetime
-    dataHoraFinalPrazo: datetime
-    locked: bool
-    dataHoraDistribuicao: Optional[datetime] = None
-    redistribuida: bool
-    distribuicaoAutomatica: bool
-    livreBalanceamento: bool
-    tipoDistribuicao: int
-    isRelevante: bool
-    criadoEm: datetime
-    atualizadoEm: datetime
-
-class CreateTarefaRequest(BaseModel):
+class CreateTarefasRequest(BaseModel):
     bloco: bool = True
     blocoProcessos: bool = True
     blocoResponsaveis: Optional[str] = None
@@ -46,3 +29,15 @@ class CreateTarefaRequest(BaseModel):
     urgente: Optional[bool] = None
     usuarioResponsavel: int
     usuarios: Optional[int] = None
+
+class CreateTarefasRequestNewPace(BaseModel):
+    id_av: int
+    data: datetime
+    id_especie: int
+    id_setor: int
+    aud: List[str]
+    obs: str
+
+class CreateTarefasSupersapiensResponse(BaseModel):
+    tarefas_sucesso: Dict[str, Optional[int | str]]
+    tarefas_fracasso: Dict[str, str]
