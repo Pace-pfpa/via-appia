@@ -1,0 +1,1 @@
+print("Módulo 'buscar_user_responsible_id' carregado com sucesso.")

@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException
-from app.modules.login.schemas import LoginRequest, LoginResponse
-from app.modules.login.service import login_service
+from app.modules.login.login_schema import LoginRequest, LoginResponse
+from app.modules.login.login_service import login_service
 from app.core.logger import logger
 
 router = APIRouter()
 
 @router.post("/login", response_model=LoginResponse)
-def login(login_data: LoginRequest):
+def login_ss(login_data: LoginRequest):
     try:
         token = login_service(login_data)
         if isinstance(token, dict) and "error" in token:

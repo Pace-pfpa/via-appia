@@ -1,1 +1,0 @@
-print("Módulo 'user_responsible_id' carregado com sucesso.")

@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException, Header
+from app.modules.buscar_user_responsible_id.uri_schema import UserIDResponse
+from app.modules.buscar_user_responsible_id.uri_service import buscar_responsible_id_service
 from app.core.logger import logger
-from app.modules.user_responsible_id.schemas import UserIDResponse
-from app.modules.user_responsible_id.service import user_responsible_id_service
 
 router = APIRouter()
 
 @router.get("/id", response_model=UserIDResponse)
-def user_responsible_id(authorization: str = Header(None)):
+def buscar_user_responsible_id(authorization: str = Header(None)):
     if not authorization or not authorization.startswith("Bearer "):
         logger.error(f"Erro na autorização: {authorization}")
         raise HTTPException(status_code=401,
@@ -15,7 +15,7 @@ def user_responsible_id(authorization: str = Header(None)):
     token = authorization.split(" ")[1]
 
     try:
-        return user_responsible_id_service(token)
+        return buscar_responsible_id_service(token)
 
     except HTTPException as http_error:
         raise http_error
