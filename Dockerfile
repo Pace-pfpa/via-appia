@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the requirements file to the working directory
 COPY requirements.txt .
 
+RUN apt update && apt upgrade -y
+RUN apt install -y python3 python3-pip
+
 # Install the Python dependencies
 RUN pip install -r requirements.txt
 
