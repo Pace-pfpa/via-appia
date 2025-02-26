@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+
+  api:
+    image: rbecamb/via-appia:v1
+    container_name: via-appia-api
+    ports:
+      - '8000:8000'
+    environment:
+        URL_API_SS: https://supersapiensbackend.agu.gov.br
+        LOG_LEVEL: info
+
+    restart: always

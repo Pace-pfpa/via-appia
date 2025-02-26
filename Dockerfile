@@ -4,14 +4,13 @@ FROM python:3.12.9-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+RUN apt update && apt upgrade -y
+
 # Copy the requirements file to the working directory
 COPY requirements.txt .
 
-RUN apt update && apt upgrade -y
-RUN apt install -y python3 python3-pip
-
 # Install the Python dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code to the working directory
 COPY . .
@@ -20,4 +19,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the FastAPI application using uvicorn server
-CMD ["uvicorn", "fast  api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
